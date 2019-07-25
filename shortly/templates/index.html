@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block style %}
+  <style>
+    .index-form-item {
+      margin-top: 20px;
+    }
+  </style>
+{% endblock %}
+
+{% block content %}
+  <div class="contents-box">
+    <h2 class="contents-title">Easy-to-read links, Shortly!</h2>
+    <form method="post" action="/urls">
+      <input type="text" class="form-control index-form-item"
+             name="destination"
+             placeholder="Write down the link you want to make short.">
+      <input type="text" class="form-control index-form-item"
+             name="name"
+             placeholder="Write down the name you want to designate.">
+      <button class="btn btn-outline-primary index-form-item"
+              type="submit">make!</button>
+    </form>
+  </div>
+{% endblock %}

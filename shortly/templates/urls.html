@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block style %}
+  <style>
+  </style>
+{% endblock %}
+
+{% block content %}
+  <div class="contents-box">
+    <h3 class="contents-title">My Short Urls</h3>
+
+    <div class="card">
+      <ul class="list-group list-group-flush">
+        {% for url in urls %}
+          <li class="list-group-item">
+            <a href="{{ url.destination }}">http://shortly/{{ url.name }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+
+  </div>
+{% endblock %}
