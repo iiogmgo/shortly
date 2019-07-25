@@ -1,0 +1,6 @@
+venv/
+.gitignore
+.idea/
+migrations/
+tests/
+shortly/*.db
