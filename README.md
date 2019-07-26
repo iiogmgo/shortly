@@ -14,7 +14,9 @@
 
    `pip install -r requirements.txt`
    
-2. init db
+2. Copy config.template.py to make config.py and fill in the contents.
+   
+3. init db
 
    `python db.py db init`
    
@@ -22,6 +24,6 @@
    
    `python db.py db upgrade`
    
-3. run flask
+4. run flask
 
    `flask run`
