@@ -27,3 +27,13 @@ def create():
     db.session.commit()
 
     return redirect(url_for('routes.urls'))
+
+
+@bp.route('/urls/delete', methods=['POST'])
+def delete():
+    url_id = request.form['url_id']
+    url = Url.query.get(url_id)
+    db.session.delete(url)
+    db.session.commit()
+
+    return redirect(url_for('routes.urls'))

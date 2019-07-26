@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% block style %}
   <style>
+    .desc-text {
+      font-size: 0.8em;
+      color: gray;
+    }
   </style>
 {% endblock %}
 
@@ -8,15 +12,23 @@
   <div class="contents-box">
     <h3 class="contents-title">My Short Urls</h3>
 
-    <div class="card">
-      <ul class="list-group list-group-flush">
-        {% for url in urls %}
-          <li class="list-group-item">
-            <a href="{{ url.destination }}">http://shortly/{{ url.name }}</a>
-          </li>
-        {% endfor %}
-      </ul>
-    </div>
+    {% for url in urls %}
+      <form method="post" action="/urls/delete">
+        <div class="card mb-4">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <a href="{{ url.destination }}">http://shortly/{{ url.name }}</a>
+              <div class="desc-text">Linked to {{ url.destination }}</div>
+              <div class="desc-text">created on {{ url.created_at.strftime('%Y-%m-%d') }}</div>
+            </li>
+          </ul>
+          <input type="hidden" name="url_id" value="{{ url.id }}">
+          <button type="submit" class="btn btn-sm btn-warning">delete</button>
+        </div>
+      </form>
+
+    {% endfor %}
+
 
   </div>
 {% endblock %}
