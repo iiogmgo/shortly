@@ -1,4 +1,5 @@
 from shortly import db
+from datetime import datetime
 
 
 class Url(db.Model):
@@ -7,6 +8,7 @@ class Url(db.Model):
     id = db.Column(db.Integer, primary_key=True, unique=True, autoincrement=True)
     name = db.Column(db.String(120), unique=True, nullable=False)
     destination = db.Column(db.Text, nullable=False)
+    created_at = db.Column(db.DateTime, default=datetime.utcnow())
 
     def __init__(self, name, destination):
         self.name = name
