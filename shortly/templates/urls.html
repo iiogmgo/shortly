@@ -13,7 +13,7 @@
     <h3 class="contents-title">My Short Urls</h3>
 
     {% for url in urls %}
-      <form method="post" action="/urls/delete">
+      <form method="post" action="{{ url_for('routes.delete') }}">
         <div class="card mb-4">
           <ul class="list-group list-group-flush">
             <li class="list-group-item">

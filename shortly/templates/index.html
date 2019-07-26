@@ -10,7 +10,7 @@
 {% block content %}
   <div class="contents-box">
     <h2 class="contents-title">Easy-to-read links, Shortly!</h2>
-    <form method="post" action="/urls">
+    <form method="post" action="{{ url_for('routes.urls') }}">
       <input type="text" class="form-control index-form-item"
              name="destination"
              placeholder="Write down the link you want to make short." required>
