@@ -11,9 +11,12 @@ class Url(db.Model):
     created_at = db.Column(db.DateTime, default=datetime.utcnow())
 
     def __init__(self, name, destination):
-        self.name = name
-        # todo : destination 에 http:// 유효성 체크
-        self.destination = destination
+        import re
+
+        self.name = re.sub('[^0-9a-zA-Zㄱ-힗]', '', name)
+        self.destination = destination \
+            if 'http://' in destination or 'https://' in destination \
+            else 'http://' + destination
 
     def __repr__(self):
         return '<Url %r>' % self.name
