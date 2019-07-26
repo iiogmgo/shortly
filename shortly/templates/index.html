@@ -10,15 +10,21 @@
 {% block content %}
   <div class="contents-box">
     <h2 class="contents-title">Easy-to-read links, Shortly!</h2>
+    {% if message %}
+      <div class="alert alert-danger" role="alert">
+        {{ message }}
+      </div>
+    {% endif %}
     <form method="post" action="{{ url_for('routes.urls') }}">
       <input type="text" class="form-control index-form-item"
-             name="destination"
+             name="destination" value="{{ destination }}"
              placeholder="Write down the link you want to make short." required>
       <input type="text" class="form-control index-form-item"
-             name="name"
+             name="name" value="{{ name }}"
              placeholder="Write down the name you want to designate.">
       <button class="btn btn-outline-primary index-form-item"
-              type="submit">make!</button>
+              type="submit">make!
+      </button>
     </form>
   </div>
 {% endblock %}
