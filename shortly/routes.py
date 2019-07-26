@@ -22,6 +22,7 @@ def create():
     destination = request.form['destination']
     name = request.form['name'] if request.form['name'] else get_random_shortly_name()
 
+    # todo : 자동 생성된 hash로 인해 name unique 에러 뜰 경우 처리
     url = Url(name=name, destination=destination)
     db.session.add(url)
     db.session.commit()
