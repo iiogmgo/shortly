@@ -1,0 +1,31 @@
+{
+  "config": {
+    "target": "http://localhost:5000",
+    "phases": [
+      {"duration": 30, "arrivalRate": 100}
+    ],
+    "defaults": {
+      "headers": {
+        "User-Agent": "Artillery"
+      }
+    },
+  },
+  "scenarios": [
+    {
+      "name": "Create urls",
+      "flow": [
+        {"post":
+          {
+            "url": "/urls",
+            "formData": {"destination": "www.google.com", "name":  ""}
+          }
+        },
+        {"get":
+          {
+            "url": "/urls"
+          }
+        }
+      ]
+    }
+  ]
+}
