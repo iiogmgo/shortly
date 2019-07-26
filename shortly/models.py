@@ -13,7 +13,7 @@ class Url(db.Model):
     def __init__(self, name, destination):
         import re
 
-        self.name = re.sub('[^0-9a-zA-Zㄱ-힗]', '', name)
+        self.name = re.sub('[^0-9a-zA-Zㄱ-힗-]', '', name)
         self.destination = destination \
             if 'http://' in destination or 'https://' in destination \
             else 'http://' + destination
