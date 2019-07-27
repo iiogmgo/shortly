@@ -1,7 +1,7 @@
 import os
 from dotenv import load_dotenv
 
-dotenv_path = os.path.join(os.path.dirname(__file__)+'../', '.env')
+dotenv_path = os.path.join(os.path.dirname(__file__) + '../', '.env')
 load_dotenv(dotenv_path)
 
 from flask import Flask
@@ -20,5 +20,6 @@ db = SQLAlchemy(app)
 
 # routes
 from shortly import routes
+
 app.register_blueprint(routes.bp)
 app.add_url_rule('/', endpoint='index')
