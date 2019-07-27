@@ -17,7 +17,9 @@
         <div class="card mb-4">
           <ul class="list-group list-group-flush">
             <li class="list-group-item">
-              <a href="{{ url.destination }}">http://shortly/{{ url.name }}</a>
+              <a href="{{ request.url_root }}{{ url.name }}">
+                {{ request.url_root }}{{ url.name }}
+              </a>
               <div class="desc-text">Linked to {{ url.destination }}</div>
               <div class="desc-text">created on {{ url.created_at.strftime('%Y-%m-%d') }}</div>
             </li>

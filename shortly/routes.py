@@ -55,3 +55,10 @@ def delete():
     db.session.commit()
 
     return redirect(url_for('routes.urls'))
+
+
+@bp.route('/<url_name>', methods=['GET'])
+def redirect_to_destination(url_name):
+    url = Url.query.filter_by(name=url_name).first()
+
+    return redirect(url.destination) if url else redirect(url_for('index'))
